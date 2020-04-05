@@ -1,0 +1,19 @@
+{
+  "name": "nfs-most-wanted-news",
+  "version": "0.0.0",
+  "description": "News for Search: Most Wanted news you can search here and now.",
+  "private": true,
+  "scripts": {
+    "dev": "serve ."
+  },
+  "repository": "github:latipun7/nfs-most-wanted-news",
+  "author": "Latif Sulistyo <latifsulistyo.me@gmail.com> (https://ruppy.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/latipun7/nfs-most-wanted-news/issues"
+  },
+  "homepage": "https://github.com/latipun7/nfs-most-wanted-news#readme",
+  "devDependencies": {
+    "serve": "^11.3.0"
+  }
+}
