@@ -4,6 +4,7 @@
   "description": "News for Search: Most Wanted news you can search here and now.",
   "private": true,
   "scripts": {
+    "build": "webpack",
     "dev": "serve .",
     "lint:all": "eslint --fix-dry-run .",
     "prettify:all": "prettier --write ."
@@ -16,6 +17,9 @@
   },
   "homepage": "https://github.com/latipun7/nfs-most-wanted-news#readme",
   "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-loader": "^8.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-config-prettier": "^6.10.1",
@@ -24,7 +28,9 @@
     "husky": "^4.2.3",
     "lint-staged": "^10.1.2",
     "prettier": "^2.0.4",
-    "serve": "^11.3.0"
+    "serve": "^11.3.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   },
   "husky": {
     "hooks": {
