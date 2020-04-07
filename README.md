@@ -50,6 +50,9 @@ This app use the following stack:
 - Webpack
 - Visual Studio Code
   - [My personal VSC settings][vsc-settings]
+- Google Chrome
+- Firefox Developer Edition (interactive CSS testing)
+- Insomnia (test API request and response)
 - Git and Github
 
 [🔝 Back to Top](#nfs-most-wanted)
@@ -91,4 +94,4 @@ root # root directory
 
 [newsapi]: https://newsapi.org/docs/get-started
 [web-components]: https://developer.mozilla.org/en-US/docs/Web/Web_Components
-[vsc-settings]: soon
+[vsc-settings]: https://www.notion.so/Editor-Settings-b991e0e781fc40cfa26feaef1d849fd1
