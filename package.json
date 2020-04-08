@@ -4,10 +4,11 @@
   "description": "News for Search: Most Wanted news you can search here and now.",
   "private": true,
   "scripts": {
-    "build": "webpack",
-    "dev": "serve .",
+    "build": "webpack --config configs/webpack.config.prod.js",
+    "dev": "webpack-dev-server --open --config configs/webpack.config.dev.js",
     "lint:all": "eslint --fix-dry-run .",
-    "prettify:all": "prettier --write ."
+    "prettify:all": "prettier --write .",
+    "start": "serve dist/"
   },
   "repository": "github:latipun7/nfs-most-wanted-news",
   "author": "Latif Sulistyo <latifsulistyo.me@gmail.com> (https://ruppy.io)",
@@ -20,17 +21,22 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-prettier": "^3.1.2",
+    "html-webpack-plugin": "^4.0.4",
     "husky": "^4.2.3",
     "lint-staged": "^10.1.2",
     "prettier": "^2.0.4",
     "serve": "^11.3.0",
     "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2"
   },
   "husky": {
     "hooks": {
