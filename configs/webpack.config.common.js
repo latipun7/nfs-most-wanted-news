@@ -1,6 +1,5 @@
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const { buildDir, publicDir } = require('./paths');
@@ -11,7 +10,6 @@ const { buildDir, publicDir } = require('./paths');
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: 'scripts/bundle.js',
     path: buildDir,
   },
   plugins: [
@@ -23,9 +21,6 @@ module.exports = {
         ignore: ['index.html'],
       },
     ]),
-    new MiniCssExtractPlugin({
-      filename: 'styles/index.css',
-    }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
