@@ -23,6 +23,8 @@ module.exports = {
     ]),
     new HtmlWebpackPlugin({
       template: './public/index.html',
+      inject: 'head',
+      scriptLoading: 'defer',
     }),
   ],
 };
