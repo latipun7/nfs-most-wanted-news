@@ -1,9 +1,13 @@
-const merge = require('webpack-merge');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+import merge from 'webpack-merge';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-const common = require('./webpack.config.common');
+import { globalStyleDir, componentsDir } from './paths';
+import {
+  commonWebpackConfig,
+  commonDevScssLoader,
+} from './webpack.config.babel';
 
-module.exports = merge(common, {
+export default merge(commonWebpackConfig, {
   mode: 'development',
   devtool: 'eval-source-map',
   output: {
@@ -24,21 +28,19 @@ module.exports = merge(common, {
     rules: [
       {
         test: /\.s[ac]ss$/,
+        include: [globalStyleDir],
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
             options: { hmr: true },
           },
-          {
-            loader: 'css-loader',
-            options: { sourceMap: true },
-          },
-          'resolve-url-loader',
-          {
-            loader: 'sass-loader',
-            options: { sourceMap: true },
-          },
+          ...commonDevScssLoader,
         ],
+      },
+      {
+        test: /\.s[ac]ss$/,
+        include: [componentsDir],
+        use: ['to-string-loader', ...commonDevScssLoader],
       },
     ],
   },

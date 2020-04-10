@@ -1,12 +1,15 @@
-const merge = require('webpack-merge');
-const TerserPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+import merge from 'webpack-merge';
+import TerserPlugin from 'terser-webpack-plugin';
+import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-const common = require('./webpack.config.common');
-const { srcDir } = require('./paths');
+import { srcDir, globalStyleDir, componentsDir } from './paths';
+import {
+  commonWebpackConfig,
+  commonProdScssLoader,
+} from './webpack.config.babel';
 
-module.exports = merge(common, {
+export default merge(commonWebpackConfig, {
   mode: 'production',
   devtool: 'hidden-source-map',
   output: {
@@ -28,17 +31,13 @@ module.exports = merge(common, {
     rules: [
       {
         test: /\.s[ac]ss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-          },
-          'resolve-url-loader',
-          {
-            loader: 'sass-loader',
-            options: { sourceMap: true },
-          },
-        ],
+        include: [globalStyleDir],
+        use: [MiniCssExtractPlugin.loader, ...commonProdScssLoader],
+      },
+      {
+        test: /\.s[ac]ss$/,
+        include: [componentsDir],
+        use: ['to-string-loader', ...commonProdScssLoader],
       },
       {
         test: /\.js$/,

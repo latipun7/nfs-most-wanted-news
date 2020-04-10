@@ -4,8 +4,8 @@
   "description": "News for Search: Most Wanted news you can search here and now.",
   "private": true,
   "scripts": {
-    "build": "webpack --config configs/webpack.config.prod.js",
-    "dev": "webpack-dev-server --config configs/webpack.config.dev.js",
+    "build": "webpack --config configs/webpack.config.prod.babel.js",
+    "dev": "webpack-dev-server --config configs/webpack.config.dev.babel.js",
     "lint:all": "eslint --fix-dry-run .",
     "prettify:all": "prettier --write .",
     "start": "serve dist/"
@@ -20,6 +20,7 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
+    "@babel/register": "^7.9.0",
     "babel-loader": "^8.1.0",
     "bulma": "^0.8.1",
     "clean-webpack-plugin": "^3.0.0",
