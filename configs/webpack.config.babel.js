@@ -27,6 +27,17 @@ const commonWebpackConfig = {
       scriptLoading: 'defer',
     }),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.(png|svg|jpe?g|gif)$/,
+        loader: 'file-loader',
+        options: {
+          outputPath: 'assets/',
+        },
+      },
+    ],
+  },
 };
 
 const commonDevScssLoader = [

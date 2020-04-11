@@ -37,7 +37,7 @@ export default merge(commonWebpackConfig, {
       {
         test: /\.s[ac]ss$/,
         include: [componentsDir],
-        use: ['to-string-loader', ...commonProdScssLoader],
+        use: [...commonProdScssLoader],
       },
       {
         test: /\.js$/,

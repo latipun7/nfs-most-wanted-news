@@ -40,7 +40,7 @@ export default merge(commonWebpackConfig, {
       {
         test: /\.s[ac]ss$/,
         include: [componentsDir],
-        use: ['to-string-loader', ...commonDevScssLoader],
+        use: [...commonDevScssLoader],
       },
     ],
   },
