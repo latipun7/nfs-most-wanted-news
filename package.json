@@ -4,10 +4,11 @@
   "description": "News for Search: Most Wanted news you can search here and now.",
   "private": true,
   "scripts": {
-    "build": "webpack --config configs/webpack.config.prod.babel.js",
+    "build": "run-s prettify lint build:webpack",
+    "build:webpack": "webpack --config configs/webpack.config.prod.babel.js",
     "dev": "webpack-dev-server --config configs/webpack.config.dev.babel.js",
-    "lint:all": "eslint --fix-dry-run .",
-    "prettify:all": "prettier --write .",
+    "lint": "eslint --fix-dry-run --color --cache .",
+    "prettify": "prettier --write .",
     "start": "serve dist/"
   },
   "repository": "github:latipun7/nfs-most-wanted-news",
@@ -37,6 +38,7 @@
     "lint-staged": "^10.1.3",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
+    "npm-run-all": "^4.1.5",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "prettier": "^2.0.4",
     "resolve-url-loader": "^3.1.1",
