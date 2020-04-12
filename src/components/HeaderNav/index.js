@@ -25,7 +25,7 @@ class HeaderNav extends HTMLElement {
   render() {
     // Create styles
     const style = document.createElement('style');
-    style.textContent = styles.toString();
+    style.textContent = styles;
     this.shadowRoot.appendChild(style);
 
     // Create navigation bar

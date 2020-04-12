@@ -1,5 +1,6 @@
 import CopyPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
 import { buildDir, publicDir } from './paths';
@@ -40,25 +41,35 @@ const commonWebpackConfig = {
   },
 };
 
-const commonDevScssLoader = [
-  {
-    loader: 'css-loader',
-    options: { sourceMap: true },
-  },
-  'resolve-url-loader',
-  {
-    loader: 'sass-loader',
-    options: { sourceMap: true },
-  },
-];
+/**
+ * @param {('dev'|'prod')} env - environment variable
+ * @param {Boolean} [raw] - cast css to string
+ * @returns {Array} style loaders array
+ */
+const styleLoaders = (env, raw) => {
+  const dev = env === 'dev';
+  const loaderOrder = [
+    {
+      loader: MiniCssExtractPlugin.loader,
+      options: { esModule: true, hmr: dev },
+    },
+    {
+      loader: 'css-loader',
+      options: { sourceMap: dev, importLoaders: 2 },
+    },
+    {
+      loader: 'resolve-url-loader',
+      options: { sourceMap: dev },
+    },
+    {
+      loader: 'sass-loader',
+      options: { sourceMap: true },
+    },
+  ];
 
-const commonProdScssLoader = [
-  'css-loader',
-  'resolve-url-loader',
-  {
-    loader: 'sass-loader',
-    options: { sourceMap: true },
-  },
-];
+  if (raw) loaderOrder.splice(0, 1, 'to-string-loader');
 
-export { commonWebpackConfig, commonDevScssLoader, commonProdScssLoader };
+  return loaderOrder;
+};
+
+export { commonWebpackConfig, styleLoaders };

@@ -4,10 +4,7 @@ import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import { srcDir, globalStyleDir, componentsDir } from './paths';
-import {
-  commonWebpackConfig,
-  commonProdScssLoader,
-} from './webpack.config.babel';
+import { commonWebpackConfig, styleLoaders } from './webpack.config.babel';
 
 export default merge(commonWebpackConfig, {
   mode: 'production',
@@ -32,12 +29,12 @@ export default merge(commonWebpackConfig, {
       {
         test: /\.s[ac]ss$/,
         include: [globalStyleDir],
-        use: [MiniCssExtractPlugin.loader, ...commonProdScssLoader],
+        use: styleLoaders('prod'),
       },
       {
         test: /\.s[ac]ss$/,
         include: [componentsDir],
-        use: [...commonProdScssLoader],
+        use: styleLoaders('prod', true),
       },
       {
         test: /\.js$/,
