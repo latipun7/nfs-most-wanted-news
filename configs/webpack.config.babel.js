@@ -1,6 +1,7 @@
 import CopyPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import postcssPresetEnv from 'postcss-preset-env';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
 import { buildDir, publicDir } from './paths';
@@ -55,7 +56,15 @@ const styleLoaders = (env, raw) => {
     },
     {
       loader: 'css-loader',
-      options: { sourceMap: dev, importLoaders: 2 },
+      options: { sourceMap: dev, importLoaders: 3 },
+    },
+    {
+      loader: 'postcss-loader',
+      options: {
+        sourceMap: dev,
+        ident: 'postcss',
+        plugins: () => [postcssPresetEnv()],
+      },
     },
     {
       loader: 'resolve-url-loader',
