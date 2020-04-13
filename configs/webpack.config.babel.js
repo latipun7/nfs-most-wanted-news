@@ -30,6 +30,7 @@ const commonWebpackConfig = {
       template: './public/index.html',
       inject: 'head',
       scriptLoading: 'defer',
+      cache: false,
     }),
   ],
   module: {
