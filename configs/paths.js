@@ -16,5 +16,16 @@ const publicDir = resolveDir('public');
 const srcDir = resolveDir('src');
 const globalStyleDir = resolveDir('src/styles');
 const componentsDir = resolveDir('src/components');
+const libDir = resolveDir('src/lib');
+const configsDir = resolveDir('configs');
 
-export { rootDir, buildDir, publicDir, srcDir, globalStyleDir, componentsDir };
+export {
+  rootDir,
+  buildDir,
+  publicDir,
+  srcDir,
+  globalStyleDir,
+  componentsDir,
+  libDir,
+  configsDir,
+};

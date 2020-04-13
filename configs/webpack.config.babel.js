@@ -4,7 +4,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import postcssPresetEnv from 'postcss-preset-env';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
-import { buildDir, publicDir } from './paths';
+import { buildDir, publicDir, libDir, configsDir } from './paths';
 
 /**
  * @type {import('webpack').Configuration} WebpackConfiguration
@@ -13,6 +13,9 @@ const commonWebpackConfig = {
   entry: './src/index.js',
   output: {
     path: buildDir,
+  },
+  resolve: {
+    modules: ['node_modules', libDir, configsDir],
   },
   plugins: [
     new CleanWebpackPlugin(),

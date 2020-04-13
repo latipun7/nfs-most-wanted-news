@@ -1,3 +1,5 @@
+import attachStyles from 'attach-styles';
+
 import styles from './index.scss';
 import logo from '../../assets/news.svg';
 
@@ -13,7 +15,7 @@ class HeaderNav extends HTMLElement {
 
   /**
    * Menu button click event
-   * @param {EventTarget} event.currentTarget
+   * @param {Event} currentTarget
    */
   toggleMenu({ currentTarget }) {
     const { target } = currentTarget.dataset;
@@ -24,9 +26,7 @@ class HeaderNav extends HTMLElement {
 
   render() {
     // Create styles
-    const style = document.createElement('style');
-    style.textContent = styles;
-    this.shadowRoot.appendChild(style);
+    attachStyles(this.shadowRoot, styles);
 
     // Create navigation bar
     const navBar = document.createElement('nav');

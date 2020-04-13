@@ -13,6 +13,17 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.mjs', '.js', '.json'],
+      },
+      webpack: {
+        config: './configs/webpack.config.dev.babel.js',
+        'config-index': 1,
+      },
+    },
+  },
   rules: {
     'prettier/prettier': 'error',
   },
