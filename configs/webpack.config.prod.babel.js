@@ -1,9 +1,8 @@
-import merge from 'webpack-merge';
-import TerserPlugin from 'terser-webpack-plugin';
-import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-
-import { srcDir, globalStyleDir, componentsDir } from './paths';
+import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
+import merge from 'webpack-merge';
+import { componentsDir, globalStyleDir, srcDir } from './paths';
 import { commonWebpackConfig, styleLoaders } from './webpack.config.babel';
 
 export default merge(commonWebpackConfig, {

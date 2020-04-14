@@ -1,7 +1,6 @@
 import attachStyles from 'attach-styles';
-
-import styles from './index.scss';
 import logo from '../../assets/news.svg';
+import styles from './index.scss';
 
 class HeaderNav extends HTMLElement {
   constructor() {

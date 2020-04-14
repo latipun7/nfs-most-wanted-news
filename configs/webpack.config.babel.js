@@ -1,10 +1,9 @@
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import postcssPresetEnv from 'postcss-preset-env';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-
-import { buildDir, publicDir, libDir, configsDir } from './paths';
+import { buildDir, configsDir, libDir, publicDir } from './paths';
 
 /**
  * @type {import('webpack').Configuration} WebpackConfiguration

@@ -1,7 +1,6 @@
-import merge from 'webpack-merge';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-
-import { globalStyleDir, componentsDir } from './paths';
+import merge from 'webpack-merge';
+import { componentsDir, globalStyleDir } from './paths';
 import { commonWebpackConfig, styleLoaders } from './webpack.config.babel';
 
 export default merge(commonWebpackConfig, {
