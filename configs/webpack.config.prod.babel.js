@@ -9,18 +9,22 @@ export default merge(commonWebpackConfig, {
   mode: 'production',
   devtool: 'hidden-source-map',
   output: {
-    filename: 'scripts/[name].[hash].js',
+    filename: 'scripts/[name].[contenthash:8].js',
+    chunkFilename: 'scripts/[name].[id].[contenthash:8].js',
   },
   optimization: {
     minimizer: [
       new TerserPlugin({ cache: true, sourceMap: true }),
       new OptimizeCSSAssetsPlugin(),
     ],
+    splitChunks: {
+      chunks: 'all',
+    },
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'styles/[name].[hash].css',
-      chunkFilename: 'styles/[id].[hash].css',
+      filename: 'styles/[name].[contenthash:8].css',
+      chunkFilename: 'styles/[name].[id].[contenthash:8].css',
     }),
   ],
   module: {

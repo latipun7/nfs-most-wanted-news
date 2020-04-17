@@ -39,6 +39,7 @@ const commonWebpackConfig = {
         loader: 'file-loader',
         options: {
           outputPath: 'assets/',
+          name: '[contenthash:16].[ext]',
         },
       },
     ],

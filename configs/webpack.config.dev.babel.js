@@ -8,6 +8,7 @@ export default merge(commonWebpackConfig, {
   devtool: 'eval-source-map',
   output: {
     filename: 'scripts/[name].js',
+    chunkFilename: 'scripts/[name].[id].js',
   },
   devServer: {
     open: true,
@@ -17,7 +18,7 @@ export default merge(commonWebpackConfig, {
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'styles/[name].css',
-      chunkFilename: 'styles/[id].css',
+      chunkFilename: 'styles/[name].[id].css',
     }),
   ],
   module: {
