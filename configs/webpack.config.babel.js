@@ -1,9 +1,11 @@
+import purgeCss from '@fullhuman/postcss-purgecss';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
+import cssnano from 'cssnano';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import postcssPresetEnv from 'postcss-preset-env';
-import { buildDir, configsDir, libDir, publicDir } from './paths';
+import { buildDir, configsDir, libDir, publicDir, srcDir } from './paths';
 
 /**
  * @type {import('webpack').Configuration} WebpackConfiguration
@@ -67,7 +69,24 @@ const styleLoaders = (env, raw) => {
       options: {
         sourceMap: dev,
         ident: 'postcss',
-        plugins: () => [postcssPresetEnv()],
+        plugins: () => [
+          postcssPresetEnv(),
+          cssnano({
+            preset: [
+              'default',
+              {
+                discardComments: { removeAll: true },
+                convertValues: { precision: 2 },
+              },
+            ],
+          }),
+          purgeCss({
+            content: [`${srcDir}/**/*.js`],
+            defaultExtractor: (content) =>
+              content.match(/[\w-/:]+(?<!:)/g) || [],
+            whitelist: ['html', 'body'],
+          }),
+        ],
       },
     },
     {
