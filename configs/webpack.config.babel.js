@@ -54,20 +54,20 @@ const commonWebpackConfig = {
  * @returns {Array} style loaders array
  */
 const styleLoaders = (env, raw) => {
-  const dev = env === 'dev';
+  const isDev = env === 'dev';
   const loaderOrder = [
     {
       loader: MiniCssExtractPlugin.loader,
-      options: { esModule: true, hmr: dev },
+      options: { esModule: true, hmr: isDev },
     },
     {
       loader: 'css-loader',
-      options: { sourceMap: dev, importLoaders: 3 },
+      options: { sourceMap: isDev, importLoaders: 3 },
     },
     {
       loader: 'postcss-loader',
       options: {
-        sourceMap: dev,
+        sourceMap: isDev,
         ident: 'postcss',
         plugins: () => [
           postcssPresetEnv(),
@@ -80,18 +80,22 @@ const styleLoaders = (env, raw) => {
               },
             ],
           }),
-          purgeCss({
-            content: [`${srcDir}/**/*.js`],
-            defaultExtractor: (content) =>
-              content.match(/[\w-/:]+(?<!:)/g) || [],
-            whitelist: ['html', 'body'],
-          }),
+          ...(!isDev
+            ? [
+                purgeCss({
+                  content: [`${srcDir}/**/*.js`],
+                  defaultExtractor: (content) =>
+                    content.match(/[\w-/:]+(?<!:)/g) || [],
+                  whitelist: ['html', 'body'],
+                }),
+              ]
+            : []),
         ],
       },
     },
     {
       loader: 'resolve-url-loader',
-      options: { sourceMap: dev },
+      options: { sourceMap: isDev },
     },
     {
       loader: 'sass-loader',
