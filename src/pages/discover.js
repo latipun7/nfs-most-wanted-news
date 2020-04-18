@@ -1,6 +1,6 @@
 import '../components/Footer';
 import '../components/HeaderNav';
-import '../components/NewsCard';
+import '../components/NewsCardList';
 import '../components/SearchInput';
 
 const discover = () => {
@@ -9,20 +9,17 @@ const discover = () => {
   const main = document.createElement('main');
   const section = document.createElement('section');
   const searchInput = document.createElement('search-input');
-  const newsCard = document.createElement('news-card');
+  const newsCardList = document.createElement('news-card-list');
   const footer = document.createElement('footer-content');
 
   main.className = 'container';
   section.className = 'section';
-  newsCard.className = 'column is-one-third';
 
   // Header section
   document.body.appendChild(header);
   header.appendChild(headerNav);
 
   // Main section
-  const newsCard2 = newsCard.cloneNode();
-  const newsCard3 = newsCard.cloneNode();
   document.body.appendChild(main);
 
   // Search input section
@@ -38,13 +35,8 @@ const discover = () => {
 
   // News section
   const newsSection = section.cloneNode();
-  const newsColumns = document.createElement('div');
-  newsColumns.className = 'columns';
   main.appendChild(newsSection);
-  newsSection.appendChild(newsColumns);
-  newsColumns.appendChild(newsCard);
-  newsColumns.appendChild(newsCard2);
-  newsColumns.appendChild(newsCard3);
+  newsSection.appendChild(newsCardList);
 
   // Footer section
   document.body.appendChild(footer);
