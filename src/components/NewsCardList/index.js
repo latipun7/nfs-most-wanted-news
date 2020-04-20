@@ -1,5 +1,5 @@
 import attachStyles from 'attach-styles';
-import newsApi from '../../lib/news-api';
+import newsApi from 'news-api';
 import '../NewsCard';
 import styles from './index.scss';
 
