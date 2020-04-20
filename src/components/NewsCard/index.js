@@ -7,7 +7,11 @@ class NewsCard extends HTMLElement {
     this.attachShadow({ mode: 'open' });
   }
 
-  connectedCallback() {
+  /**
+   * @param {Array} news - News articles
+   */
+  set newsItem(news) {
+    this.news = news;
     this.render();
   }
 
@@ -31,10 +35,8 @@ class NewsCard extends HTMLElement {
     cardImage.appendChild(figure);
 
     const image = document.createElement('img');
-    image.src =
-      'https://images.cointelegraph.com/images/740_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS9zdG9yYWdlL3VwbG9hZHMvdmlldy82ZWZmYmY1ZjNiYTRmNWVkN2E2OGYxNjdhNTNhM2U3ZS5qcGc=.jpg';
-    image.alt =
-      'Libra Stablecoin is Still a Major Threat to Bitcoin: Economist';
+    image.src = this.news.urlToImage;
+    image.alt = this.news.title;
     figure.appendChild(image);
 
     // Card content wrapper
@@ -54,12 +56,11 @@ class NewsCard extends HTMLElement {
 
     const title = document.createElement('p');
     title.className = 'title is-4';
-    title.innerText =
-      'Libra Stablecoin is Still a Major Threat to Bitcoin: Economist';
+    title.innerText = this.news.title;
 
     const subtitle = document.createElement('p');
     subtitle.className = 'subtitle is-6';
-    subtitle.innerText = 'Cointelegraph By Samuel Haig';
+    subtitle.innerText = this.news.author;
 
     // Button
     const rightContent = document.createElement('div');
@@ -79,13 +80,12 @@ class NewsCard extends HTMLElement {
     cardContent.appendChild(content);
 
     const description = document.createElement('p');
-    description.innerText =
-      'Economist and academic John Vaz believes that Facebook’s Libra stablecoin is still shaping up to be Bitcoin’s strongest competition';
+    description.innerText = this.news.description;
     content.appendChild(description);
 
     const time = document.createElement('time');
-    time.dateTime = '2020-04-15T05:49:00Z';
-    time.innerText = '2020-04-15T05:49:00Z';
+    time.dateTime = this.news.publishedAt;
+    time.innerText = this.news.publishedAt;
     content.appendChild(time);
   }
 }

@@ -1,15 +1,37 @@
 import attachStyles from 'attach-styles';
+import newsApi from '../../lib/news-api';
 import '../NewsCard';
 import styles from './index.scss';
 
 class NewsCardList extends HTMLElement {
   constructor() {
     super();
+    this.news = [];
     this.attachShadow({ mode: 'open' });
   }
 
   connectedCallback() {
+    this.topHeadlines().then((result) => {
+      this.newsList = result;
+    });
+  }
+
+  /**
+   * @param {Array} news - News articles
+   */
+  set newsList(news) {
+    this.news = news;
     this.render();
+  }
+
+  async topHeadlines() {
+    try {
+      const res = await newsApi.topHeadlines({ country: 'id' });
+      this.news = [];
+      return res.articles;
+    } catch (error) {
+      return error;
+    }
   }
 
   render() {
@@ -24,19 +46,16 @@ class NewsCardList extends HTMLElement {
 
     // News card list wrapper
     const wrapper = document.createElement('div');
-    wrapper.className = 'columns';
+    wrapper.className = 'columns is-multiline';
     this.shadowRoot.appendChild(wrapper);
 
     // News card list
-    const newsCard = document.createElement('news-card');
-    newsCard.className = 'column is-is-one-third';
-
-    const newsCard2 = newsCard.cloneNode();
-    const newsCard3 = newsCard.cloneNode();
-
-    wrapper.appendChild(newsCard);
-    wrapper.appendChild(newsCard2);
-    wrapper.appendChild(newsCard3);
+    this.news.forEach((newsItem) => {
+      const newsCard = document.createElement('news-card');
+      newsCard.className = 'column is-one-third';
+      newsCard.newsItem = newsItem;
+      wrapper.appendChild(newsCard);
+    });
   }
 }
 
