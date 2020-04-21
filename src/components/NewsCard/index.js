@@ -1,4 +1,5 @@
 import attachStyles from 'attach-styles';
+import clearAllChild from 'clear-all-child';
 import styles from './index.scss';
 
 class NewsCard extends HTMLElement {
@@ -16,13 +17,18 @@ class NewsCard extends HTMLElement {
   }
 
   render() {
+    const root = this.shadowRoot;
+
+    // Allow re-render
+    clearAllChild(root);
+
     // Create styles
-    attachStyles(this.shadowRoot, styles);
+    attachStyles(root, styles);
 
     // Create card container
     const card = document.createElement('article');
     card.className = 'card';
-    this.shadowRoot.appendChild(card);
+    root.appendChild(card);
 
     // Create card image container
     const cardImage = document.createElement('div');

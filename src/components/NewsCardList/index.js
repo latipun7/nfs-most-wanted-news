@@ -1,4 +1,5 @@
 import attachStyles from 'attach-styles';
+import clearAllChild from 'clear-all-child';
 import newsApi from 'news-api';
 import '../NewsCard';
 import styles from './index.scss';
@@ -35,19 +36,24 @@ class NewsCardList extends HTMLElement {
   }
 
   render() {
+    const root = this.shadowRoot;
+
+    // Allow re-render
+    clearAllChild(root);
+
     // Append styles
-    attachStyles(this.shadowRoot, styles);
+    attachStyles(root, styles);
 
     // News card list title
     const h1 = document.createElement('h1');
     h1.className = 'title is-3 has-text-centered';
     h1.innerText = 'Featured News';
-    this.shadowRoot.appendChild(h1);
+    root.appendChild(h1);
 
     // News card list wrapper
     const wrapper = document.createElement('div');
     wrapper.className = 'columns is-multiline';
-    this.shadowRoot.appendChild(wrapper);
+    root.appendChild(wrapper);
 
     // News card list
     this.news.forEach((newsItem) => {

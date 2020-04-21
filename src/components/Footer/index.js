@@ -1,4 +1,5 @@
 import attachStyles from 'attach-styles';
+import clearAllChild from 'clear-all-child';
 import styles from './index.scss';
 
 class Footer extends HTMLElement {
@@ -12,13 +13,18 @@ class Footer extends HTMLElement {
   }
 
   render() {
+    const root = this.shadowRoot;
+
+    // Allow re-render
+    clearAllChild(root);
+
     // Attach styles
-    attachStyles(this.shadowRoot, styles);
+    attachStyles(root, styles);
 
     // Create footer element
     const footer = document.createElement('footer');
     footer.className = 'footer';
-    this.shadowRoot.appendChild(footer);
+    root.appendChild(footer);
 
     // Create footer content container
     const footerContentContainer = document.createElement('div');

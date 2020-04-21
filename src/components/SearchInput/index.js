@@ -1,4 +1,5 @@
 import attachStyles from 'attach-styles';
+import clearAllChild from 'clear-all-child';
 import styles from './index.scss';
 
 class SearchInput extends HTMLElement {
@@ -25,13 +26,18 @@ class SearchInput extends HTMLElement {
   }
 
   render() {
+    const root = this.shadowRoot;
+
+    // Allow re-render
+    clearAllChild(root);
+
     // Attach styles
-    attachStyles(this.shadowRoot, styles);
+    attachStyles(root, styles);
 
     // Field search input
     const field = document.createElement('div');
     field.className = 'field';
-    this.shadowRoot.appendChild(field);
+    root.appendChild(field);
 
     // Search control
     const control = document.createElement('div');

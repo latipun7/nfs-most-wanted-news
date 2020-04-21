@@ -1,4 +1,5 @@
 import attachStyles from 'attach-styles';
+import clearAllChild from 'clear-all-child';
 import logo from '../../assets/news.svg';
 import styles from './index.scss';
 
@@ -24,14 +25,19 @@ class HeaderNav extends HTMLElement {
   }
 
   render() {
+    const root = this.shadowRoot;
+
+    // Allow re-render
+    clearAllChild(root);
+
     // Create styles
-    attachStyles(this.shadowRoot, styles);
+    attachStyles(root, styles);
 
     // Create navigation bar
     const navBar = document.createElement('nav');
     navBar.setAttribute('aria-label', 'main navigation');
     navBar.className = 'navbar';
-    this.shadowRoot.appendChild(navBar);
+    root.appendChild(navBar);
 
     // Create container for header navigation
     const container = document.createElement('div');
@@ -84,7 +90,7 @@ class HeaderNav extends HTMLElement {
     navMenuEnd.appendChild(readingList).innerText = 'Reading List';
 
     // Click Event for toggling menu
-    const buttonEvent = this.shadowRoot.querySelector('.navbar-burger');
+    const buttonEvent = root.querySelector('.navbar-burger');
     buttonEvent.addEventListener('click', this.toggleMenu.bind(this));
   }
 }
