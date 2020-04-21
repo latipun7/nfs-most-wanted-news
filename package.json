@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "News for Search: Most Wanted news you can search here and now.",
   "private": true,
+  "engines": {
+    "node": ">=10 <14"
+  },
   "scripts": {
     "build": "run-s prettify lint build:webpack",
     "build:webpack": "webpack --config configs/webpack.config.prod.babel.js",
