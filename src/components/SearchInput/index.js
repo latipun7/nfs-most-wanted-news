@@ -7,8 +7,21 @@ class SearchInput extends HTMLElement {
     this.attachShadow({ mode: 'open' });
   }
 
-  connectedCallback() {
+  // connectedCallback() {
+  //   this.render();
+  // }
+
+  set enterKeywordsEvent(event) {
+    this.enterEvent = event;
     this.render();
+  }
+
+  get value() {
+    return this.shadowRoot.querySelector('input').value;
+  }
+
+  set value(value) {
+    this.shadowRoot.querySelector('input').value = value;
   }
 
   render() {
@@ -28,9 +41,12 @@ class SearchInput extends HTMLElement {
     // Search input
     const searchInput = document.createElement('input');
     searchInput.className = 'input is-info is-large is-rounded';
-    searchInput.type = 'text';
-    searchInput.placeholder = 'News here';
+    searchInput.type = 'search';
+    searchInput.placeholder = 'Keywords here, then press enter!';
     field.appendChild(searchInput);
+
+    // Add event listener
+    searchInput.addEventListener('keyup', this.enterEvent);
   }
 }
 

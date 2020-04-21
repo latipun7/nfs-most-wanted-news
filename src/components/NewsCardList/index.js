@@ -28,7 +28,7 @@ class NewsCardList extends HTMLElement {
     try {
       const res = await newsApi.topHeadlines({ country: 'id' });
       this.news = [];
-      return res.articles;
+      return res;
     } catch (error) {
       return error;
     }

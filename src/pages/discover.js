@@ -1,3 +1,4 @@
+import NewsAPI from 'news-api';
 import '../components/Footer';
 import '../components/HeaderNav';
 import '../components/NewsCardList';
@@ -40,6 +41,33 @@ const discover = () => {
 
   // Footer section
   document.body.appendChild(footer);
+
+  // Enter keywords event
+  const searchNews = async () => {
+    try {
+      const result = await NewsAPI.topHeadlines({
+        q: searchInput.value,
+        country: 'us',
+      });
+      return result;
+    } catch (error) {
+      return error;
+    }
+  };
+
+  const setNewsList = async () => {
+    const newsList = await searchNews();
+    newsCardList.newsList = newsList;
+    searchInput.value = '';
+  };
+
+  const event = ({ key }) => {
+    if (key === 'Enter') {
+      setNewsList();
+    }
+  };
+
+  searchInput.enterKeywordsEvent = event;
 };
 
 export default discover;

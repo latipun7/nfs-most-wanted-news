@@ -44,7 +44,7 @@ class NewsAPI {
   static async topHeadlines(query) {
     try {
       const res = await NewsAPI.getNews('/top-headlines', query);
-      return res;
+      return res.articles;
     } catch (error) {
       return error;
     }
