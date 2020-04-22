@@ -46,8 +46,8 @@ const discover = () => {
   const searchNews = async () => {
     try {
       const result = await NewsAPI.topHeadlines({
-        q: searchInput.value,
-        country: 'us',
+        q: searchInput.inputValue,
+        country: searchInput.selectValue,
       });
       return result;
     } catch (error) {
@@ -59,7 +59,7 @@ const discover = () => {
     const newsList = await searchNews();
     newsCardList.newsList = newsList;
     searchInput.loadingState = false;
-    searchInput.value = '';
+    searchInput.inputValue = '';
   };
 
   const event = ({ key }) => {

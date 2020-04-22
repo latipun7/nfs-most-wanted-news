@@ -24,11 +24,16 @@ class SearchInput extends HTMLElement {
     this.render();
   }
 
-  get value() {
+  get selectValue() {
+    const select = this.shadowRoot.querySelector('select');
+    return select.options[select.selectedIndex].value;
+  }
+
+  get inputValue() {
     return this.shadowRoot.querySelector('input').value;
   }
 
-  set value(value) {
+  set inputValue(value) {
     this.shadowRoot.querySelector('input').value = value;
   }
 
@@ -36,7 +41,7 @@ class SearchInput extends HTMLElement {
    * @param {Boolean} value - state is loading or not
    */
   set loadingState(value) {
-    const control = this.shadowRoot.querySelector('.control');
+    const control = this.shadowRoot.querySelector('#input-control');
     const searchInput = this.shadowRoot.querySelector('input');
     const selectInput = this.shadowRoot.querySelector('select');
     this.isLoading = value;
@@ -68,27 +73,6 @@ class SearchInput extends HTMLElement {
     field.className = 'field has-addons is-addons-desktop';
     root.appendChild(field);
 
-    // Input search control
-    const inputControl = document.createElement('div');
-    inputControl.className = 'control is-expanded is-medium has-icons-left';
-    field.appendChild(inputControl);
-
-    // Search input
-    const searchInput = document.createElement('input');
-    searchInput.className = 'input is-info is-medium is-rounded';
-    searchInput.type = 'search';
-    searchInput.placeholder = '<Enter> keywords!';
-    inputControl.appendChild(searchInput);
-
-    // Search icon
-    const iconWrapper = document.createElement('span');
-    const icon = document.createElement('img');
-    iconWrapper.className = 'icon is-small is-left';
-    icon.src = searchIcon;
-    icon.alt = 'Search';
-    inputControl.appendChild(iconWrapper);
-    iconWrapper.appendChild(icon);
-
     // Country dropdown control
     const dropdownControl = document.createElement('div');
     const selectWrapper = document.createElement('div');
@@ -108,6 +92,28 @@ class SearchInput extends HTMLElement {
       option.text = country.name;
       select.appendChild(option);
     });
+
+    // Input search control
+    const inputControl = document.createElement('div');
+    inputControl.id = 'input-control';
+    inputControl.className = 'control is-expanded is-medium has-icons-right';
+    field.appendChild(inputControl);
+
+    // Search input
+    const searchInput = document.createElement('input');
+    searchInput.className = 'input is-info is-medium is-rounded';
+    searchInput.type = 'search';
+    searchInput.placeholder = '<Enter> keywords!';
+    inputControl.appendChild(searchInput);
+
+    // Search icon
+    const iconWrapper = document.createElement('span');
+    const icon = document.createElement('img');
+    iconWrapper.className = 'icon is-small is-right';
+    icon.src = searchIcon;
+    icon.alt = 'Search';
+    inputControl.appendChild(iconWrapper);
+    iconWrapper.appendChild(icon);
 
     // Add event listener
     searchInput.addEventListener('keyup', this.enterEvent);

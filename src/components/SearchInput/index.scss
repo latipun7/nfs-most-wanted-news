@@ -18,24 +18,28 @@ span.icon {
   }
 }
 
+.control.is-loading:after {
+  right: 2.5em;
+}
+
 @include until($desktop) {
   .field.has-addons.is-addons-desktop {
     display: block;
 
     .control {
       &:first-child:not(:only-child) {
-        .input {
-          border-bottom-right-radius: $radius-rounded;
-          border-top-right-radius: $radius-rounded;
+        .select {
+          select {
+            border-bottom-right-radius: $radius-rounded;
+            border-top-right-radius: $radius-rounded;
+          }
         }
       }
 
       &:last-child:not(:only-child) {
-        .select {
-          select {
-            border-bottom-left-radius: $radius-rounded;
-            border-top-left-radius: $radius-rounded;
-          }
+        .input {
+          border-bottom-left-radius: $radius-rounded;
+          border-top-left-radius: $radius-rounded;
         }
       }
 
