@@ -1,6 +1,6 @@
 import attachStyles from 'attach-styles';
 import clearAllChild from 'clear-all-child';
-import newsApi from 'news-api';
+import newsAPI from 'news-api';
 import '../NewsCard';
 import styles from './index.scss';
 
@@ -35,7 +35,7 @@ class NewsCardList extends HTMLElement {
 
   async topHeadlines() {
     try {
-      const res = await newsApi.topHeadlines({ country: 'id' });
+      const res = await newsAPI.topHeadlines({ country: 'id' });
       this.news = [];
       return res;
     } catch (error) {

@@ -28,7 +28,7 @@ const discover = () => {
   const searchColumns = document.createElement('div');
   const wrapper = document.createElement('div');
   searchColumns.className = 'columns is-tablet is-centered';
-  wrapper.className = 'column is-half';
+  wrapper.className = 'column is-four-fifths-desktop is-full-mobile';
   main.appendChild(searchInputSection);
   searchInputSection.appendChild(searchColumns);
   searchColumns.appendChild(wrapper);

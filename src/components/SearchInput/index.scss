@@ -1,10 +1,47 @@
 @import "../../../node_modules/bulma/sass/utilities/initial-variables.sass";
 @import "../../../node_modules/bulma/sass/utilities/functions.sass";
-@import "../../../node_modules/bulma/sass/utilities/animations.sass";
 @import "../../../node_modules/bulma/sass/utilities/derived-variables.sass";
+@import "../../../node_modules/bulma/sass/utilities/animations.sass";
 @import "../../../node_modules/bulma/sass/utilities/mixins.sass";
 @import "../../../node_modules/bulma/sass/utilities/controls.sass";
 @import "../../../node_modules/bulma/sass/base/minireset.sass";
+@import "../../../node_modules/bulma/sass/base/generic.sass";
+@import "../../../node_modules/bulma/sass/elements/icon.sass";
 @import "../../../node_modules/bulma/sass/form/shared.sass";
 @import "../../../node_modules/bulma/sass/form/input-textarea.sass";
+@import "../../../node_modules/bulma/sass/form/select.sass";
 @import "../../../node_modules/bulma/sass/form/tools.sass";
+
+span.icon {
+  img {
+    height: 29px;
+  }
+}
+
+@include until($desktop) {
+  .field.has-addons.is-addons-desktop {
+    display: block;
+
+    .control {
+      &:first-child:not(:only-child) {
+        .input {
+          border-bottom-right-radius: $radius-rounded;
+          border-top-right-radius: $radius-rounded;
+        }
+      }
+
+      &:last-child:not(:only-child) {
+        .select {
+          select {
+            border-bottom-left-radius: $radius-rounded;
+            border-top-left-radius: $radius-rounded;
+          }
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 0.75rem;
+      }
+    }
+  }
+}
