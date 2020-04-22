@@ -58,11 +58,13 @@ const discover = () => {
   const setNewsList = async () => {
     const newsList = await searchNews();
     newsCardList.newsList = newsList;
+    searchInput.loadingState = false;
     searchInput.value = '';
   };
 
   const event = ({ key }) => {
     if (key === 'Enter') {
+      searchInput.loadingState = true;
       setNewsList();
     }
   };

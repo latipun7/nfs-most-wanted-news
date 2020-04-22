@@ -8,12 +8,18 @@ class NewsCardList extends HTMLElement {
   constructor() {
     super();
     this.news = [];
+    this.isLoading = true;
+    this.isFeatured = true;
     this.attachShadow({ mode: 'open' });
   }
 
   connectedCallback() {
+    this.render();
     this.topHeadlines().then((result) => {
-      this.newsList = result;
+      this.isFeatured = true;
+      this.news = result;
+      this.isLoading = false;
+      this.render();
     });
   }
 
@@ -22,6 +28,8 @@ class NewsCardList extends HTMLElement {
    */
   set newsList(news) {
     this.news = news;
+    this.isFeatured = false;
+    this.isLoading = false;
     this.render();
   }
 
@@ -47,7 +55,7 @@ class NewsCardList extends HTMLElement {
     // News card list title
     const h1 = document.createElement('h1');
     h1.className = 'title is-3 has-text-centered';
-    h1.innerText = 'Featured News';
+    h1.innerText = this.isFeatured ? 'Featured News' : 'Search Results';
     root.appendChild(h1);
 
     // News card list wrapper
@@ -55,13 +63,36 @@ class NewsCardList extends HTMLElement {
     wrapper.className = 'columns is-multiline';
     root.appendChild(wrapper);
 
+    // Loading overlay
+    const loadingOverlay = document.createElement('div');
+    const loading = document.createElement('div');
+    loadingOverlay.className = 'loading-overlay';
+    loading.className = 'loading';
+    wrapper.appendChild(loadingOverlay);
+    loadingOverlay.appendChild(loading);
+
     // News card list
-    this.news.forEach((newsItem) => {
-      const newsCard = document.createElement('news-card');
-      newsCard.className = 'column is-one-third';
-      newsCard.newsItem = newsItem;
-      wrapper.appendChild(newsCard);
-    });
+    if (this.isLoading) {
+      loadingOverlay.classList.add('is-active');
+    } else {
+      loadingOverlay.classList.remove('is-active');
+      if (this.news.length === 0) {
+        const noResult = document.createElement('div');
+        const text = document.createElement('p');
+        noResult.className = 'column is-full';
+        text.className = 'subtitle is-3 has-text-centered';
+        text.innerText = 'No result.';
+        wrapper.appendChild(noResult);
+        noResult.appendChild(text);
+      } else {
+        this.news.forEach((newsItem) => {
+          const newsCard = document.createElement('news-card');
+          newsCard.className = 'column is-one-third';
+          newsCard.newsItem = newsItem;
+          wrapper.appendChild(newsCard);
+        });
+      }
+    }
   }
 }
 

@@ -5,13 +5,18 @@ import styles from './index.scss';
 class SearchInput extends HTMLElement {
   constructor() {
     super();
+    this.enterEvent = null;
+    this.isLoading = false;
     this.attachShadow({ mode: 'open' });
   }
 
-  // connectedCallback() {
-  //   this.render();
-  // }
+  connectedCallback() {
+    this.render();
+  }
 
+  /**
+   * @param {Function} event - Callback function on event listener
+   */
   set enterKeywordsEvent(event) {
     this.enterEvent = event;
     this.render();
@@ -23,6 +28,25 @@ class SearchInput extends HTMLElement {
 
   set value(value) {
     this.shadowRoot.querySelector('input').value = value;
+  }
+
+  /**
+   * @param {Boolean} value - state is loading or not
+   */
+  set loadingState(value) {
+    const control = this.shadowRoot.querySelector('.control');
+    const searchInput = this.shadowRoot.querySelector('input');
+    this.isLoading = value;
+
+    // Check loading state
+    if (this.isLoading) {
+      control.classList.add('is-loading');
+      searchInput.setAttribute('disabled', '');
+    } else {
+      control.classList.remove('is-loading');
+      searchInput.removeAttribute('disabled');
+      searchInput.focus();
+    }
   }
 
   render() {
@@ -41,7 +65,7 @@ class SearchInput extends HTMLElement {
 
     // Search control
     const control = document.createElement('div');
-    control.className = 'control';
+    control.className = 'control is-large';
     field.appendChild(control);
 
     // Search input

@@ -1,8 +1,43 @@
+$grey-lighter: #000000a1;
+
 @import "../../../node_modules/bulma/sass/utilities/initial-variables.sass";
 @import "../../../node_modules/bulma/sass/utilities/functions.sass";
+@import "../../../node_modules/bulma/sass/utilities/animations.sass";
 @import "../../../node_modules/bulma/sass/utilities/derived-variables.sass";
 @import "../../../node_modules/bulma/sass/utilities/mixins.sass";
 @import "../../../node_modules/bulma/sass/base/helpers.sass";
 @import "../../../node_modules/bulma/sass/base/minireset.sass";
 @import "../../../node_modules/bulma/sass/grid/columns.sass";
 @import "../../../node_modules/bulma/sass/elements/title.sass";
+
+.columns {
+  min-height: 30vh;
+  position: relative;
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: inherit;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.2s;
+
+  &.is-active {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .loading {
+    @extend %loader;
+    position: relative;
+    height: 3em;
+    width: 3em;
+  }
+}
