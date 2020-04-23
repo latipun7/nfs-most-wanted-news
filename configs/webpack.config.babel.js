@@ -86,7 +86,8 @@ const styleLoaders = (env, raw) => {
                   content: [`${srcDir}/**/*.js`],
                   defaultExtractor: (content) =>
                     content.match(/[\w-/:]+(?<!:)/g) || [],
-                  whitelist: ['html', 'body'],
+                  whitelist: ['html'],
+                  whitelistPatterns: [/^::-webkit-scrollbar/],
                 }),
               ]
             : []),
