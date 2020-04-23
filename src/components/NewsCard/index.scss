@@ -1,3 +1,5 @@
+@import "../../styles/override-variables.scss";
+
 @import "../../../node_modules/bulma/sass/utilities/initial-variables.sass";
 @import "../../../node_modules/bulma/sass/utilities/functions.sass";
 @import "../../../node_modules/bulma/sass/utilities/derived-variables.sass";
@@ -10,20 +12,12 @@
 @import "../../../node_modules/bulma/sass/components/card.sass";
 @import "../../../node_modules/bulma/sass/components/media.sass";
 
-.content {
-  p {
-    margin-bottom: 1em;
-  }
-}
+@import "../../styles/override-generics.scss";
+@import "../../styles/override-media.scss";
 
-.media-content {
-  a {
-    text-decoration: none;
-
-    &:hover {
-      p.title {
-        color: $primary;
-      }
-    }
+.card {
+  transition: linear 0.2s;
+  &:hover {
+    box-shadow: 0 0.5em 1.2em 0.313em $shadow-stronger, 0 0px 0 1px $shadow;
   }
 }

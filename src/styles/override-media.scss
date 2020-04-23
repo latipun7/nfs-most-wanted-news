@@ -1,0 +1,22 @@
+.content {
+  p {
+    margin-bottom: 1em;
+  }
+
+  time {
+    font-size: small;
+    font-style: italic;
+  }
+}
+
+.media-content {
+  a {
+    text-decoration: none;
+
+    &:hover {
+      p.title {
+        color: $brand-hover;
+      }
+    }
+  }
+}

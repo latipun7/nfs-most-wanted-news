@@ -1,4 +1,4 @@
-$grey-lighter: #000000a1;
+@import "../../styles/override-variables.scss";
 
 @import "../../../node_modules/bulma/sass/utilities/initial-variables.sass";
 @import "../../../node_modules/bulma/sass/utilities/functions.sass";
@@ -9,6 +9,8 @@ $grey-lighter: #000000a1;
 @import "../../../node_modules/bulma/sass/base/minireset.sass";
 @import "../../../node_modules/bulma/sass/grid/columns.sass";
 @import "../../../node_modules/bulma/sass/elements/title.sass";
+
+@import "../../styles/override-generics.scss";
 
 .columns {
   min-height: 30vh;

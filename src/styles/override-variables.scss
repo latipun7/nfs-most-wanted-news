@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+// LS' Colors
+$darkest: #222831;
+$darker: #393e46;
+$brand: #00adb5;
+$brand-hover: #01d7e2;
+$brand-lighter: #11ecfb;
+$whitey: #eeeeee;
+$whitey-strong: #ffffff;
+$shadow: rgba(0, 0, 0, 0.3);
+$shadow-stronger: rgba(0, 0, 0, 0.4);
+
+// Update Bulma's global variables
+$family-sans-serif: "Nunito", sans-serif;
+$background: $darker;
+$grey-dark: $darker;
+$primary: $brand;
+$link: $brand;
+$link-hover: $brand-lighter;
+$dark: $darkest;
+$light: $whitey;
+$text: $whitey;
+$text-strong: $whitey-strong;
+$scheme-main: $brand;
+
+// Generics Base
+$body-background-color: $dark;
+$body-color: $text;
+
+// Footer Layout
+$footer-background-color: $grey-dark;
+$footer-color: $text;
+
+// Navbar Component
+$navbar-background-color: $dark;
+$navbar-height: 4rem;
+$navbar-item-hover-color: $link-hover;
+$navbar-item-hover-background-color: $background;
+
+// Card Component
+$card-background-color: $darker;
+$card-shadow: 0 0.5em 1em -0.125em $shadow-stronger, 0 0px 0 1px $shadow;
+
+// Input Form
+$input-background-color: $dark;

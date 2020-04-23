@@ -83,7 +83,7 @@ class SearchInput extends HTMLElement {
     const selectWrapper = document.createElement('div');
     dropdownControl.className = 'control is-medium';
     selectWrapper.className =
-      'select is-info is-medium is-rounded is-fullwidth';
+      'select is-primary is-medium is-rounded is-fullwidth';
     field.appendChild(dropdownControl);
     dropdownControl.appendChild(selectWrapper);
 
@@ -112,7 +112,7 @@ class SearchInput extends HTMLElement {
 
     // Search input
     const searchInput = document.createElement('input');
-    searchInput.className = 'input is-info is-medium is-rounded';
+    searchInput.className = 'input is-primary is-medium is-rounded';
     searchInput.type = 'search';
     searchInput.placeholder = '<Enter> keywords!';
     inputControl.appendChild(searchInput);

@@ -1,0 +1,17 @@
+a {
+  color: $link;
+  cursor: pointer;
+  text-decoration: none;
+  strong {
+    color: currentColor;
+  }
+  &:hover {
+    color: $link-hover;
+    text-decoration: underline;
+  }
+}
+
+::selection {
+  background-color: $primary;
+  color: $light;
+}

@@ -1,3 +1,5 @@
+@import "../../styles/override-variables.scss";
+
 @import "../../../node_modules/bulma/sass/utilities/initial-variables.sass";
 @import "../../../node_modules/bulma/sass/utilities/functions.sass";
 @import "../../../node_modules/bulma/sass/utilities/derived-variables.sass";
@@ -6,3 +8,11 @@
 @import "../../../node_modules/bulma/sass/base/helpers.sass";
 @import "../../../node_modules/bulma/sass/elements/content.sass";
 @import "../../../node_modules/bulma/sass/layout/footer.sass";
+
+@import "../../styles/override-generics.scss";
+
+.footer {
+  p {
+    font-size: large;
+  }
+}

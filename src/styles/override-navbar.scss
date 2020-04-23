@@ -1,0 +1,21 @@
+.navbar {
+  box-shadow: 0 0.063em 0.313em 0.063em $shadow-stronger;
+}
+
+.navbar-item {
+  span {
+    display: block;
+    font-size: larger;
+    font-weight: 700;
+    color: $primary;
+    margin-left: 0.625em;
+
+    &:hover {
+      color: $brand-hover;
+    }
+  }
+}
+
+a.navbar-item {
+  text-decoration: none;
+}
