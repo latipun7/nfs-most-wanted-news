@@ -1,5 +1,6 @@
 import attachStyles from 'attach-styles';
 import clearAllChild from 'clear-all-child';
+import dayjs from 'dayjs';
 import styles from './index.scss';
 
 class NewsCard extends HTMLElement {
@@ -60,7 +61,11 @@ class NewsCard extends HTMLElement {
     mediaContent.className = 'media-content';
     media.appendChild(mediaContent);
 
+    const titleLink = document.createElement('a');
     const title = document.createElement('p');
+    titleLink.href = this.news.url;
+    titleLink.target = '_blank';
+    titleLink.rel = 'noreferrer noopener';
     title.className = 'title is-4';
     title.innerText = this.news.title;
 
@@ -68,16 +73,8 @@ class NewsCard extends HTMLElement {
     subtitle.className = 'subtitle is-6';
     subtitle.innerText = this.news.author;
 
-    // Button
-    const rightContent = document.createElement('div');
-    const button = document.createElement('button');
-    rightContent.className = 'media-right';
-    button.className = 'button is-small is-info is-rounded';
-    button.innerText = 'Add';
-
-    media.appendChild(rightContent);
-    rightContent.appendChild(button);
-    mediaContent.appendChild(title);
+    mediaContent.appendChild(titleLink);
+    titleLink.appendChild(title);
     mediaContent.appendChild(subtitle);
 
     // Content description
@@ -91,7 +88,9 @@ class NewsCard extends HTMLElement {
 
     const time = document.createElement('time');
     time.dateTime = this.news.publishedAt;
-    time.innerText = this.news.publishedAt;
+    time.innerText = dayjs(this.news.publishedAt).format(
+      'ddd, DD MMM YYYY, h:mma [(UTC]Z[)]'
+    );
     content.appendChild(time);
   }
 }

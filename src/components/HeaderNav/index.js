@@ -36,7 +36,7 @@ class HeaderNav extends HTMLElement {
     // Create navigation bar
     const navBar = document.createElement('nav');
     navBar.setAttribute('aria-label', 'main navigation');
-    navBar.className = 'navbar';
+    navBar.className = 'navbar is-fixed-top';
     root.appendChild(navBar);
 
     // Create container for header navigation
@@ -52,12 +52,15 @@ class HeaderNav extends HTMLElement {
     // Image logo item
     const imgLink = document.createElement('a');
     const img = document.createElement('img');
+    const title = document.createElement('span');
     imgLink.className = 'navbar-item';
     imgLink.href = '/';
     img.src = logo;
-    img.alt = 'NFS: Most Wanted (News)';
+    img.alt = 'NFS (news)';
+    title.innerText = 'News for Search';
     navBarBrand.appendChild(imgLink);
     imgLink.appendChild(img);
+    imgLink.appendChild(title);
 
     // Menu button on mobile
     const menuButton = document.createElement('a');
@@ -85,9 +88,13 @@ class HeaderNav extends HTMLElement {
     navMenuLink.className = 'navbar-item';
     const discover = navMenuLink.cloneNode();
     const readingList = navMenuLink.cloneNode();
+    discover.href = '/';
+    readingList.href = 'https://newsapi.org/docs/endpoints/top-headlines';
+    readingList.target = '_blank';
+    readingList.rel = 'noreferrer noopener';
     navMenu.appendChild(navMenuEnd);
     navMenuEnd.appendChild(discover).innerText = 'Discover';
-    navMenuEnd.appendChild(readingList).innerText = 'Reading List';
+    navMenuEnd.appendChild(readingList).innerText = 'API Docs';
 
     // Click Event for toggling menu
     const buttonEvent = root.querySelector('.navbar-burger');

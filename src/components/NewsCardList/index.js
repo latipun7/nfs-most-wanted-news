@@ -8,6 +8,8 @@ class NewsCardList extends HTMLElement {
   constructor() {
     super();
     this.news = [];
+    this.keywords = '';
+    this.country = '';
     this.isLoading = true;
     this.isFeatured = true;
     this.attachShadow({ mode: 'open' });
@@ -24,10 +26,15 @@ class NewsCardList extends HTMLElement {
   }
 
   /**
-   * @param {Array} news - News articles
+   * Set news list to render
+   * @param {Array} news - news array from API response
+   * @param {String} keywords - keywords string from input
+   * @param {String} country - country name from select dropdown
    */
-  set newsList(news) {
+  newsList(news, keywords, country) {
     this.news = news;
+    this.keywords = keywords;
+    this.country = country;
     this.isFeatured = false;
     this.isLoading = false;
     this.render();
@@ -73,18 +80,32 @@ class NewsCardList extends HTMLElement {
 
     // News card list
     if (this.isLoading) {
+      // activate loading overlay when first page loading
       loadingOverlay.classList.add('is-active');
     } else {
+      // remove loading overlay
       loadingOverlay.classList.remove('is-active');
+
+      const resultText = document.createElement('div');
+      const text = document.createElement('p');
+      resultText.className = 'column is-full';
+      text.className = 'subtitle is-3 has-text-centered';
+
       if (this.news.length === 0) {
-        const noResult = document.createElement('div');
-        const text = document.createElement('p');
-        noResult.className = 'column is-full';
-        text.className = 'subtitle is-3 has-text-centered';
+        // if search result not found
         text.innerText = 'No result.';
-        wrapper.appendChild(noResult);
-        noResult.appendChild(text);
+        wrapper.appendChild(resultText);
+        resultText.appendChild(text);
       } else {
+        // display search result
+        if (!this.isFeatured) {
+          text.innerText = `Top headlines ${
+            this.keywords !== '' ? `of ${this.keywords}` : ''
+          } in ${this.country}.`;
+        }
+        wrapper.appendChild(resultText);
+        resultText.appendChild(text);
+
         this.news.forEach((newsItem) => {
           const newsCard = document.createElement('news-card');
           newsCard.className = 'column is-one-third';

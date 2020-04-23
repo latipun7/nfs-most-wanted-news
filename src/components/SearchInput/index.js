@@ -29,6 +29,11 @@ class SearchInput extends HTMLElement {
     return select.options[select.selectedIndex].value;
   }
 
+  get selectName() {
+    const select = this.shadowRoot.querySelector('select');
+    return select.options[select.selectedIndex].text;
+  }
+
   get inputValue() {
     return this.shadowRoot.querySelector('input').value;
   }
@@ -90,6 +95,12 @@ class SearchInput extends HTMLElement {
       const option = document.createElement('option');
       option.value = country.code;
       option.text = country.name;
+
+      // select Indonesia at first render
+      if (country.code === 'id') {
+        option.selected = true;
+      }
+
       select.appendChild(option);
     });
 

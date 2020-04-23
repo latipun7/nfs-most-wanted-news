@@ -16,6 +16,8 @@ const discover = () => {
   main.className = 'container';
   section.className = 'section';
 
+  document.body.className = 'has-navbar-fixed-top';
+
   // Header section
   document.body.appendChild(header);
   header.appendChild(headerNav);
@@ -57,7 +59,11 @@ const discover = () => {
 
   const setNewsList = async () => {
     const newsList = await searchNews();
-    newsCardList.newsList = newsList;
+    newsCardList.newsList(
+      newsList,
+      searchInput.inputValue,
+      searchInput.selectName
+    );
     searchInput.loadingState = false;
     searchInput.inputValue = '';
   };

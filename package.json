@@ -22,7 +22,8 @@
   },
   "homepage": "https://github.com/latipun7/nfs-most-wanted-news#readme",
   "dependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.19.2",
+    "dayjs": "^1.8.25"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

@@ -12,3 +12,28 @@ $family-sans-serif: "Nunito", sans-serif;
 @import "../../node_modules/bulma/sass/elements/container.sass";
 @import "../../node_modules/bulma/sass/grid/columns.sass";
 @import "../../node_modules/bulma/sass/layout/section.sass";
+
+$navbar-height: 4rem;
+
+html,
+body {
+  &.has-navbar-fixed-top {
+    padding-top: $navbar-height;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0.625rem;
+  background-color: $light;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $light;
+  border-radius: 15px;
+  box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 15px;
+  background-color: $primary;
+}

@@ -36,7 +36,7 @@ class Footer extends HTMLElement {
     footerContent.innerHTML = `
       Powered by <a href="https://newsapi.org/docs/get-started" target="_blank" rel="noreferrer noopener">newsapi.org</a>.</br>
       Icon made by <a href="https://www.flaticon.com/authors/smashicons" target="_blank" rel="noreferrer noopener">Smashicons</a> from <a href="https://www.flaticon.com/" target="_blank" rel="noreferrer noopener">www.flaticon.com</a>.</br>
-      Copyright &copy; ${new Date().getFullYear()} <strong>Latif Sulistyo</strong>.
+      Copyright &copy; ${new Date().getFullYear()}, <strong>Latif Sulistyo</strong>.
     `;
     footerContentContainer.appendChild(footerContent);
   }

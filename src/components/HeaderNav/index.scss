@@ -1,6 +1,19 @@
+$navbar-height: 4rem;
+
 @import "../../../node_modules/bulma/sass/utilities/initial-variables.sass";
 @import "../../../node_modules/bulma/sass/utilities/functions.sass";
 @import "../../../node_modules/bulma/sass/utilities/derived-variables.sass";
 @import "../../../node_modules/bulma/sass/utilities/mixins.sass";
+@import "../../../node_modules/bulma/sass/base/generic.sass";
 @import "../../../node_modules/bulma/sass/elements/container.sass";
 @import "../../../node_modules/bulma/sass/components/navbar.sass";
+
+.navbar-item {
+  span {
+    display: block;
+    font-size: larger;
+    font-weight: 700;
+    color: $primary;
+    margin-left: 0.625em;
+  }
+}
