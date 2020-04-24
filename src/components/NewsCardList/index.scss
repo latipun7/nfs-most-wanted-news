@@ -10,6 +10,7 @@
 @import "../../../node_modules/bulma/sass/grid/columns.sass";
 @import "../../../node_modules/bulma/sass/elements/title.sass";
 
+@import "../../styles/override-mixins.scss";
 @import "../../styles/override-generics.scss";
 
 .columns {
@@ -37,7 +38,7 @@
   }
 
   .loading {
-    @extend %loader;
+    @include loader;
     position: relative;
     height: 3em;
     width: 3em;

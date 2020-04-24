@@ -14,6 +14,7 @@
 @import "../../../node_modules/bulma/sass/form/select.sass";
 @import "../../../node_modules/bulma/sass/form/tools.sass";
 
+@import "../../styles/override-mixins.scss";
 @import "../../styles/override-generics.scss";
 
 span.icon {
@@ -23,6 +24,7 @@ span.icon {
 }
 
 .control.is-loading:after {
+  @include loader;
   right: 2.5em;
 }
 
