@@ -78,6 +78,23 @@ class SearchInput extends HTMLElement {
     field.className = 'field has-addons is-addons-desktop';
     root.appendChild(field);
 
+    // Label field
+    const labelField = document.createElement('div');
+    labelField.className = 'field-label is-large';
+    field.appendChild(labelField);
+
+    // Labels
+    const countryLabel = document.createElement('label');
+    const searchLabel = document.createElement('label');
+    countryLabel.htmlFor = 'country';
+    countryLabel.className = 'label';
+    countryLabel.innerText = 'Select Country and';
+    searchLabel.htmlFor = 'search';
+    searchLabel.className = 'label';
+    searchLabel.innerText = 'Input search keywords.';
+    labelField.appendChild(countryLabel);
+    labelField.appendChild(searchLabel);
+
     // Country dropdown control
     const dropdownControl = document.createElement('div');
     const selectWrapper = document.createElement('div');
@@ -89,6 +106,7 @@ class SearchInput extends HTMLElement {
 
     // Country dropdown items
     const select = document.createElement('select');
+    select.id = 'country';
     selectWrapper.appendChild(select);
 
     validCountryList.forEach((country) => {
@@ -113,6 +131,7 @@ class SearchInput extends HTMLElement {
     // Search input
     const searchInput = document.createElement('input');
     searchInput.className = 'input is-primary is-medium is-rounded';
+    searchInput.id = 'search';
     searchInput.type = 'search';
     searchInput.placeholder = '<Enter> keywords!';
     inputControl.appendChild(searchInput);

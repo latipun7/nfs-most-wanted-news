@@ -14,5 +14,12 @@
 .footer {
   p {
     font-size: large;
+    a {
+      color: $brand-hover;
+
+      &:hover {
+        color: $brand-lighter;
+      }
+    }
   }
 }

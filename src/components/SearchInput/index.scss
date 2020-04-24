@@ -17,28 +17,100 @@
 @import "../../styles/override-mixins.scss";
 @import "../../styles/override-generics.scss";
 
+// Search icon
 span.icon {
   img {
     height: 29px;
   }
 }
 
+// Field
+.field.has-addons {
+  flex-flow: row wrap;
+
+  .control {
+    &:not(:first-child):not(:last-child) {
+      .select select {
+        border-radius: $radius-rounded 0 0 $radius-rounded;
+      }
+    }
+  }
+}
+
+.label {
+  color: $label-color;
+  display: block;
+  font-size: $size-normal;
+  font-weight: $label-weight;
+  text-align: center;
+  &:not(:last-child) {
+    margin-right: 0.25em;
+    margin-bottom: 0;
+  }
+  &.is-large {
+    font-size: $size-large;
+  }
+}
+
+// Only applied until tablet media query
+@include until($tablet) {
+  .label {
+    flex: 100%;
+    &:not(:last-child) {
+      margin-right: 0;
+      margin-bottom: 0.5em;
+    }
+  }
+}
+
+// Field label
+.field-label {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+  .label {
+    font-size: inherit;
+  }
+
+  @include mobile {
+    margin-bottom: 0.5rem;
+  }
+
+  @include tablet {
+    flex: 100%;
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  &.is-large {
+    font-size: $size-large;
+    padding-top: 0.375em;
+  }
+}
+
+// Adjust position of leader on input
 .control.is-loading:after {
   @include loader;
   right: 2.5em;
 }
 
+// Only applied until desktop media query
 @include until($desktop) {
   .field.has-addons.is-addons-desktop {
     display: block;
 
     .control {
+      &:not(:first-child):not(:last-child) {
+        .select select {
+          border-radius: $radius-rounded;
+        }
+      }
       &:first-child:not(:only-child) {
-        .select {
-          select {
-            border-bottom-right-radius: $radius-rounded;
-            border-top-right-radius: $radius-rounded;
-          }
+        .select select {
+          border-bottom-right-radius: $radius-rounded;
+          border-top-right-radius: $radius-rounded;
         }
       }
 
