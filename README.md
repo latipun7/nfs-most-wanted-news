@@ -31,7 +31,8 @@
 ## Description
 
 This application is for users to search news from all around the world.
-Users can save news in their "reading list" and saved in their browser storage.
+API provided by [newsapi.org][newsapi] with [top headlines][top-headlines] endpoint.
+Users can search top headlines news with the selected country.
 
 ### Motivation
 
@@ -47,19 +48,10 @@ of web frontend developer. This app is for completing one of [Dicoding][dicondin
 
 ## How to Interact with This App
 
-Users will land in landing page. From there only one button "Get Started".
-After clicking it, users will go to main page.
-
 In this main page users can see featured news or just search the news from
-search box and news will displayed in a list card. In this page, users can click
-the "add" button in news card to add the news into their reading list
-and saved to browser storage.
-
-Add to reading list is optional, they can just click the news card and they will
-taken to news page for the actual reading.
-
-In the Reading List page, only news added by users is displayed.
-Users can delete it with clicking "Del" button.
+search box and news will displayed in the list cards. In this page, users can
+select the country and input the keywords to search the top headlines news
+in that selected country by the keywords user entered.
 
 ## Dev Info
 
@@ -75,19 +67,19 @@ This overall app created with the help of the following **key** techs / apps:
 - [Visual Studio Code][vsc] (my favorite code editor)
   - [Great intellisense][vsc-type-intel] with [type cheking][ts-jsdoc]
   - [My personal VSCode settings][vsc-settings]
-- HTML5
-- Javascript
-  - Plain vanilla **without frontend framework or library**
+- [HTML5][html]
+- [Javascript][js]
+  - Plain vanilla **without JS frontend framework or library**
   - ES6++
   - [Web Components][web-components]
-- SASS/SCSS ➞ CSS3
+- [SASS/SCSS][sass] ➞ [CSS3][css]
   - [Bulma][bulma] (CSS Framework)
 - [Webpack][webpack]
+- [Babel][babel]
 - [Google Chrome][chrome]
-- [Firefox Developer Edition][firefox] (interactive CSS testing)
 - [Insomnia][insomnia] (test API request and response)
 - [Favicon][favicon] (to generate favicon from png)
-- Git and Github
+- [Git][git] and [Github][github]
 
 [🔝 Back to Top][top]
 
@@ -112,13 +104,7 @@ This overall app created with the help of the following **key** techs / apps:
 
 ### Wireframes
 
-![Landing Page][landing-page]
-
 ![Main Page][main-page]
-
-![Reading List Page][reading-page]
-
-![News Page][news-page]
 
 [🔝 Back to Top][top]
 
@@ -137,21 +123,16 @@ This overall app created with the help of the following **key** techs / apps:
   npm install
   ```
 
-- Build into production ready
-
-  ```bash
-  npm run build
-  ```
-
 - Start development server
 
   ```bash
   npm run dev
   ```
 
-  or start production ready server
+- or build into production ready and start static server
 
   ```bash
+  npm run build
   npm start
   ```
 
@@ -176,8 +157,13 @@ This overall app created with the help of the following **key** techs / apps:
 [diconding]: https://www.dicoding.com/ "Dicoding Academy"
 [bfwd]: https://www.dicoding.com/academies/163 "Learning Fundamental Front-End Web Development"
 [wireframe]: https://wireframe.cc/ "Wireframe"
-[landing-page]: resources/wireframes/1-Landing-Page.png "Landing Page"
-[main-page]: resources/wireframes/2-Main-Page.png "Main Page"
-[reading-page]: resources/wireframes/3-Reading-List-Page.png "Reading List Page"
-[news-page]: resources/wireframes/4-News-Page.png "News Page"
+[main-page]: resources/wireframes/1-Main-Page.png "Main Page"
 [bulma]: https://bulma.io/ "Bulma CSS Framework"
+[top-headlines]: https://newsapi.org/docs/endpoints/top-headlines "NewsAPI top headlines"
+[babel]: https://babeljs.io/ "BabelJS"
+[git]: https://git-scm.com/ "Git"
+[github]: https://github.com/latipun7/nfs-most-wanted-news "Github Repo"
+[html]: https://developer.mozilla.org/en-US/docs/Web/HTML "HTML References"
+[js]: https://developer.mozilla.org/en-US/docs/Web/JavaScript "JS References"
+[css]: https://developer.mozilla.org/en-US/docs/Web/CSS "CSS References"
+[sass]: https://sass-lang.com/ "Sass"
