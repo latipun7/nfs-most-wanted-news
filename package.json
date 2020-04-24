@@ -22,7 +22,10 @@
   },
   "homepage": "https://github.com/latipun7/nfs-most-wanted-news#readme",
   "dependencies": {
+    "@babel/runtime": "^7.9.2",
+    "@webcomponents/webcomponentsjs": "^2.4.3",
     "axios": "^0.19.2",
+    "core-js": "^3.6.5",
     "dayjs": "^1.8.25"
   },
   "devDependencies": {
@@ -64,14 +67,7 @@
     "webpack-merge": "^4.2.2"
   },
   "browserslist": [
-    ">=0.19%",
-    "not edge < 79",
-    "not safari < 10",
-    "not chrome 49",
-    "not dead",
-    "not IE 11",
-    "not kaiOS 2.5",
-    "not op_mini all"
+    "defaults"
   ],
   "husky": {
     "hooks": {

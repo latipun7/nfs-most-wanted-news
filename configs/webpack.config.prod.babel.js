@@ -8,6 +8,11 @@ import { commonWebpackConfig, styleLoaders } from './webpack.config.babel';
 export default merge(commonWebpackConfig, {
   mode: 'production',
   devtool: 'hidden-source-map',
+  entry: {
+    polyfills: './src/polyfills.js',
+    webCompPolyfills: './src/webcomponents-polyfills.js',
+    index: './src/index.js',
+  },
   output: {
     filename: 'scripts/[name].[contenthash:8].js',
     chunkFilename: 'scripts/[name].[id].[contenthash:8].js',
@@ -44,7 +49,15 @@ export default merge(commonWebpackConfig, {
         include: [srcDir],
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/preset-env'],
+          presets: [
+            [
+              '@babel/preset-env',
+              {
+                useBuiltIns: 'entry',
+                corejs: 3.6,
+              },
+            ],
+          ],
         },
       },
     ],
