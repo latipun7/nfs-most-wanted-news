@@ -21,3 +21,7 @@
     box-shadow: 0 0.5em 1.2em 0.313em $shadow-stronger, 0 0px 0 1px $shadow;
   }
 }
+
+.image img {
+  object-fit: cover;
+}
