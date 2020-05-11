@@ -37,7 +37,13 @@ const commonWebpackConfig = {
     new WorkboxPlugin.GenerateSW({
       clientsClaim: true,
       skipWaiting: true,
-      maximumFileSizeToCacheInBytes: 2097152 * 3,
+      maximumFileSizeToCacheInBytes: 2097152 * 7,
+      runtimeCaching: [
+        {
+          urlPattern: new RegExp('https://newsapi.ruppy.io'),
+          handler: 'StaleWhileRevalidate',
+        },
+      ],
     }),
   ],
   module: {
