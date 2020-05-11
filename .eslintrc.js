@@ -3,16 +3,8 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  extends: ['airbnb-base', 'prettier'],
+  extends: ['ruppy-node'],
   plugins: ['import', 'prettier'],
-  globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
-  },
-  parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: 'module',
-  },
   settings: {
     'import/resolver': {
       node: {
@@ -23,8 +15,5 @@ module.exports = {
         'config-index': 1,
       },
     },
-  },
-  rules: {
-    'prettier/prettier': 'error',
   },
 };

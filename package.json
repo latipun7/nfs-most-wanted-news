@@ -1,6 +1,5 @@
 {
   "name": "nfs-most-wanted-news",
-  "version": "0.0.0",
   "description": "News for Search: Most Wanted news you can search here and now.",
   "private": true,
   "engines": {
@@ -39,11 +38,11 @@
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.5.3",
     "cssnano": "^4.1.10",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-config-prettier": "^6.11.0",
+    "eslint": "6.x",
+    "eslint-config-ruppy-node": "^0.3.1",
     "eslint-import-resolver-webpack": "^0.12.1",
     "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.1.3",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
