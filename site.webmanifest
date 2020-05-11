@@ -1,6 +1,8 @@
 {
   "name": "NFS: Most Wanted (News)",
-  "short_name": "nfs",
+  "short_name": "NFS (News)",
+  "description": "News for Search: Most Wanted news you can search here and now.",
+  "categories": ["news", "education", "magazines"],
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -13,7 +15,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#00adb5",
+  "background_color": "#222831",
   "display": "standalone"
 }
