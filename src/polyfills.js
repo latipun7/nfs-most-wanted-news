@@ -8,3 +8,15 @@
 //   opera 65, safari 13, safari 12.1, samsung 11.1, samsung 10.1
 import '@babel/runtime/regenerator';
 import 'core-js/stable';
+
+// Register service worker for PWA
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/service-worker.js')
+      .catch((registrationError) => {
+        // eslint-disable-next-line no-console
+        console.log('SW registration failed: ', registrationError);
+      });
+  });
+}

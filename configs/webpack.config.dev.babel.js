@@ -14,6 +14,7 @@ export default merge(commonWebpackConfig, {
     open: true,
     hot: true,
     overlay: { errors: true, warnings: true },
+    writeToDisk: true,
   },
   plugins: [
     new MiniCssExtractPlugin({

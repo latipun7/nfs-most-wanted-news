@@ -5,6 +5,7 @@ import cssnano from 'cssnano';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import postcssPresetEnv from 'postcss-preset-env';
+import WorkboxPlugin from 'workbox-webpack-plugin';
 import { buildDir, configsDir, libDir, publicDir, srcDir } from './paths';
 
 /**
@@ -32,6 +33,11 @@ const commonWebpackConfig = {
       inject: 'head',
       scriptLoading: 'defer',
       cache: false,
+    }),
+    new WorkboxPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
+      maximumFileSizeToCacheInBytes: 2097152 * 3,
     }),
   ],
   module: {
