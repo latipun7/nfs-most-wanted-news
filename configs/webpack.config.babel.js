@@ -41,7 +41,7 @@ const commonWebpackConfig = {
       runtimeCaching: [
         {
           urlPattern: new RegExp('https://newsapi.ruppy.io'),
-          handler: 'StaleWhileRevalidate',
+          handler: 'NetworkFirst',
         },
       ],
     }),
