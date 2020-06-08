@@ -3469,20 +3469,20 @@ eslint-config-prettier@^6.11.0:
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-config-ruppy-base@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-ruppy-base/-/eslint-config-ruppy-base-0.3.0.tgz#50b1b265e292a028215013a70f49d40303d95080"
-  integrity sha512-IpBRwAokdk9rabXI3lSFssHWr8DqRhGwCHunnoUsj9HiRB3Sp8JRyp2JX6LNwCIp8DgbxycDjALmgRnDnhH70w==
+eslint-config-ruppy-base@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/eslint-config-ruppy-base/-/eslint-config-ruppy-base-0.4.2.tgz#95965a4f450a72524f361e16849d6b0cd7fb0d5d"
+  integrity sha512-6UcG+fSJTiBXnA04M7LUXRR7fv83oOv3EWYqWlN8CYhi2fUIqWklv8eWSBUF+i/Uflo/sMxyv7A/pT5MorKsOA==
   dependencies:
     confusing-browser-globals "^1.0.9"
     eslint-config-prettier "^6.11.0"
 
-eslint-config-ruppy-node@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-ruppy-node/-/eslint-config-ruppy-node-0.3.1.tgz#5601070555bf2de37d30c4cc2a7e426c43d23680"
-  integrity sha512-JwWpfNu7rxsWcqEb75ZFDfXpRltJCY5lBdJ6ab1LzZmY2VoALAVmBKCaS1wDJ/aiVs4z6uicEetVrjdmnrFrrg==
+eslint-config-ruppy-node@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/eslint-config-ruppy-node/-/eslint-config-ruppy-node-0.4.2.tgz#58d961defeef220fc3dbbff69e23b3081d6e66f2"
+  integrity sha512-G6toi8WLZwlyWWKtOEjoZAQbldftPjtclYCwvBVdeeJas2pAe7ZQAEbXDgQy08uy02UNUFyxrDhw4izzdIVeGw==
   dependencies:
-    eslint-config-ruppy-base "^0.3.0"
+    eslint-config-ruppy-base "^0.4.2"
 
 eslint-import-resolver-node@^0.3.2:
   version "0.3.3"
