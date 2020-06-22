@@ -38,7 +38,7 @@
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.6.0",
     "cssnano": "^4.1.10",
-    "eslint": "7.3.0",
+    "eslint": "^7.3.0",
     "eslint-config-ruppy-node": "^0.6.1",
     "eslint-import-resolver-webpack": "^0.12.2",
     "eslint-plugin-import": "^2.21.2",
