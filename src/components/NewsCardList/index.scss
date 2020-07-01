@@ -3,12 +3,12 @@
 @import "../../../node_modules/bulma/sass/utilities/initial-variables.sass";
 @import "../../../node_modules/bulma/sass/utilities/functions.sass";
 @import "../../../node_modules/bulma/sass/utilities/animations.sass";
-@import "../../../node_modules/bulma/sass/utilities/derived-variables.sass";
+@import "../../../node_modules/bulma/sass/utilities/derived-variables.scss";
 @import "../../../node_modules/bulma/sass/utilities/mixins.sass";
-@import "../../../node_modules/bulma/sass/base/helpers.sass";
 @import "../../../node_modules/bulma/sass/base/minireset.sass";
 @import "../../../node_modules/bulma/sass/grid/columns.sass";
 @import "../../../node_modules/bulma/sass/elements/title.sass";
+@import "../../../node_modules/bulma/sass/helpers/_all.sass";
 
 @import "../../styles/override-mixins.scss";
 @import "../../styles/override-generics.scss";

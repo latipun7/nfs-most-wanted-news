@@ -21,13 +21,17 @@ const commonWebpackConfig = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new CopyPlugin([
-      {
-        from: publicDir,
-        to: buildDir,
-        ignore: ['index.html'],
-      },
-    ]),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: publicDir,
+          to: buildDir,
+          globOptions: {
+            ignore: ['index.html'],
+          },
+        },
+      ],
+    }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
       inject: 'head',
