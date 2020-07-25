@@ -36,7 +36,7 @@
     "bulma": "^0.9.0",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.0.3",
-    "css-loader": "^3.6.0",
+    "css-loader": "^4.0.0",
     "cssnano": "^4.1.10",
     "eslint": "^7.5.0",
     "eslint-config-ruppy-node": "^1.0.0",
