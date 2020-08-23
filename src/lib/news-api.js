@@ -23,7 +23,7 @@ export default class NewsAPI {
    */
   static async getNews(url, query) {
     try {
-      const baseUrl = 'https://newsapi.ruppy.io';
+      const baseUrl = 'https://api.ruppy.io/news';
 
       const newsQuery = query;
       const pageSize = query.pageSize || 9;
