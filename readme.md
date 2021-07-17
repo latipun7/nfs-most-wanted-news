@@ -1,5 +1,7 @@
 # NFS: Most Wanted (News)
 
+[![Discord](https://img.shields.io/discord/758271814153011201?label=Developers%20Indonesia&logo=discord&style=flat-square)](https://discord.gg/njSj2Nq "Chat and discuss at Developers Indonesia")
+
 > News for Search: Most Wanted news you can search here and now.
 
 <div align="center">
