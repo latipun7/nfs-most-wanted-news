@@ -44,7 +44,7 @@ const commonWebpackConfig = {
       maximumFileSizeToCacheInBytes: 2097152 * 7,
       runtimeCaching: [
         {
-          urlPattern: new RegExp('https://newsapi.ruppy.io'),
+          urlPattern: new RegExp('https://newsapi.org'),
           handler: 'NetworkFirst',
         },
       ],

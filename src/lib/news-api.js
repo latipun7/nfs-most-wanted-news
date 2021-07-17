@@ -23,14 +23,16 @@ export default class NewsAPI {
    */
   static async getNews(url, query) {
     try {
-      const baseUrl = 'https://api.ruppy.io/news';
+      const baseUrl = 'https://newsapi.org/v2';
 
       const newsQuery = query;
       const pageSize = query.pageSize || 9;
       newsQuery.pageSize = pageSize;
 
       const querystring = qs.stringify(newsQuery);
-      const res = await axios.get(`${baseUrl}${url}?${querystring}`);
+      const res = await axios.get(`${baseUrl}${url}?${querystring}`, {
+        headers: { 'X-Api-Key': 'b8c92191ce994d948a83e24854b31b0f' },
+      });
       return res.data;
     } catch (error) {
       return error;

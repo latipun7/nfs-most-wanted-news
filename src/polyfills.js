@@ -13,7 +13,7 @@ import 'core-js/stable';
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker
-      .register('/service-worker.js')
+      .register('service-worker.js')
       .catch((registrationError) => {
         // eslint-disable-next-line no-console
         console.log('SW registration failed: ', registrationError);
