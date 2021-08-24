@@ -21,18 +21,18 @@
   },
   "homepage": "https://github.com/latipun7/nfs-most-wanted-news#readme",
   "dependencies": {
-    "@babel/runtime": "^7.12.1",
+    "@babel/runtime": "^7.15.3",
     "@webcomponents/webcomponentsjs": "^2.5.0",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "dayjs": "^1.9.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/preset-env": "^7.12.1",
-    "@babel/register": "^7.12.1",
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/register": "^7.15.3",
     "@fullhuman/postcss-purgecss": "^2.3.0",
-    "babel-loader": "^8.1.0",
+    "babel-loader": "^8.2.2",
     "bulma": "^0.9.1",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.2.1",
