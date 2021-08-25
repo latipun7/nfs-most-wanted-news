@@ -22,7 +22,7 @@
   "homepage": "https://github.com/latipun7/nfs-most-wanted-news#readme",
   "dependencies": {
     "@babel/runtime": "^7.15.3",
-    "@webcomponents/webcomponentsjs": "^2.5.0",
+    "@webcomponents/webcomponentsjs": "^2.6.0",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "dayjs": "^1.9.3"
