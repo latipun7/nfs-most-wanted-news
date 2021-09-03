@@ -16,7 +16,7 @@ export default merge(commonWebpackConfig, {
   output: {
     filename: 'scripts/[name].[contenthash:8].js',
     chunkFilename: 'scripts/[name].[id].[contenthash:8].js',
-    publicPath: '/nfs-most-wanted-news/',
+    publicPath: '/',
   },
   optimization: {
     minimizer: [
